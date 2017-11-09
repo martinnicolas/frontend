@@ -6,15 +6,5 @@
   </li>
 </ul>
 
-<div *ngIf="selectedPersona">
-  <h2>Persona: {{selectedPersona.apellido}} {{selectedPersona.nombre}}</h2>
-  <div><label>DNI:</label> {{selectedPersona.dni}}</div>
-  <div><label>Apellido:</label> {{selectedPersona.apellido}}</div>
-  <div><label>Nombre:</label> {{selectedPersona.nombre}}</div>
-</div>
-
-<div>
-  <label>nombre: </label>
-  <input [(ngModel)]="selectedPersona.nombre" placeholder="persona">
-</div>
+<app-persona-detalle [persona]="selectedPersona"></app-persona-detalle>
 

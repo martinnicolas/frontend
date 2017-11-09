@@ -3,10 +3,12 @@ import { NgModule } from '@angular/core';
 import { FormsModule }   from '@angular/forms'; /*Para formulario*/
 
 import { AppComponent } from './app.component';
+import { PersonaDetalleComponent } from './persona-detalle/persona-detalle.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PersonaDetalleComponent
   ],
   imports: [
     BrowserModule,
