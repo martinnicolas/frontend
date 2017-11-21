@@ -1,10 +1,20 @@
 <div *ngIf="persona">
   
-  <h2>{{ persona.name | uppercase }} Detalles</h2>
+  <h2>{{ persona.nombre | uppercase }} Detalles</h2>
   <div><span>id: </span>{{persona.id}}</div>
   <div>
-  <label>nombre:
-    <input [(ngModel)]="persona.nombre" placeholder="nombre"/>
-  </label>
+    <label>DNI:
+      <input [(ngModel)]="persona.dni" placeholder="dni"/>
+    </label>
+  </div>  
+  <div>
+    <label>Apellido:
+      <input [(ngModel)]="persona.apellido" placeholder="apellido"/>
+    </label>
+  </div> 
+  <div>
+    <label>Nombre:
+      <input [(ngModel)]="persona.nombre" placeholder="nombre"/>
+    </label>
   </div>  
 </div>
