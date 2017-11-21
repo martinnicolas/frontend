@@ -1,4 +1,5 @@
 <h2>Listado de Personas</h2>
+
 <ul class="personas">
   <li *ngFor="let persona of personas" (click)="onSelect(persona)" [class.selected]="persona === selectedPersona">
     <!-- each persona goes here -->

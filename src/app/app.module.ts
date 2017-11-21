@@ -6,17 +6,22 @@ import { AppComponent } from './app.component';
 import { PersonaDetalleComponent } from './persona-detalle/persona-detalle.component';
 import { PersonasComponent } from './personas/personas.component';
 
+import { PersonaService } from './persona.service';
+import { MessageService } from './message.service';
+import { MessagesComponent } from './messages/messages.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     PersonaDetalleComponent,
-    PersonasComponent
+    PersonasComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,
     FormsModule /* Agrego el modulo a la app */
   ],
-  providers: [],
+  providers: [ PersonaService, MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
