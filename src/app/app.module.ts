@@ -10,6 +10,8 @@ import { PersonaService } from './persona.service';
 import { MessageService } from './message.service';
 import { MessagesComponent } from './messages/messages.component';
 
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +21,8 @@ import { MessagesComponent } from './messages/messages.component';
   ],
   imports: [
     BrowserModule,
-    FormsModule /* Agrego el modulo a la app */
+    FormsModule, /* Agrego el modulo a la app */
+    HttpClientModule
   ],
   providers: [ PersonaService, MessageService],
   bootstrap: [AppComponent]
