@@ -4,17 +4,18 @@
   <div><span>id: </span>{{persona.id}}</div>
   <div>
     <label>DNI:
-      <input [(ngModel)]="persona.dni" placeholder="dni"/>
+      <input name="dni" [(ngModel)]="persona.dni" placeholder="dni"/>
     </label>
   </div>  
   <div>
     <label>Apellido:
-      <input [(ngModel)]="persona.apellido" placeholder="apellido"/>
+      <input name="apellido" [(ngModel)]="persona.apellido" placeholder="apellido"/>
     </label>
   </div> 
   <div>
     <label>Nombre:
-      <input [(ngModel)]="persona.nombre" placeholder="nombre"/>
+      <input name="nombre" [(ngModel)]="persona.nombre" placeholder="nombre"/>
     </label>
   </div>  
+  <button (click)="guardar()">Guardar</button>  
 </div>

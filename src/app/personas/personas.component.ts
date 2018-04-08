@@ -11,6 +11,7 @@ export class PersonasComponent implements OnInit {
 
   selectedPersona: Persona; 
   personas: Persona[];
+  persona: Persona;
 
   constructor(private personaService: PersonaService) { }
    
@@ -25,6 +26,11 @@ export class PersonasComponent implements OnInit {
   getPersonas(): void {
     this.personaService.getPersonas()
         .subscribe(personas => this.personas = personas);
+  }
+
+  eliminar(persona: Persona): void {
+    this.personaService.deletePersona(persona)
+    .subscribe(persona => this.persona = persona);;
   }
 
 }
