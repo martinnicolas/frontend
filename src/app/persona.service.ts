@@ -6,27 +6,33 @@ import { of } from 'rxjs/observable/of';
 import { Persona } from './persona';
 import { MessageService } from './message.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Api } from './api.service';
 
 @Injectable()
-export class PersonaService {
+export class PersonaService extends Api{
 
-  private personasUrl = 'http://localhost:8084/backend/personas';  // URL to web api
-
-  constructor(private messageService: MessageService, private http: HttpClient) { }
+  private personasResource = `${this.baseURL}/personas`;
+  
+  constructor(private messageService: MessageService, private http: HttpClient) {
+    super();
+  }
 
   getPersonas(): Observable<Persona[]> {
     // Todo: send the message _after_ fetching the heroes
     this.messageService.add('PersonaService: listado de personas');
-    return this.http.get<Persona[]>(this.personasUrl);
+    return this.http.get<Persona[]>(this.personasResource);
   }
 
   createPersona(persona: Persona): Observable<Persona> {
     this.messageService.add('PersonaService: Persona creada');
+    let options = {
+      headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
+    };
     let params = new URLSearchParams();
     params.set('dni', persona.dni.toString());
     params.set('apellido', persona.apellido.toString());
     params.set('nombre', persona.nombre.toString());
-    return this.http.post<Persona>(this.personasUrl, params);
+    return this.http.post<Persona>(this.personasResource, params, options);
   }
 
   updatePersona(persona: Persona): Observable<Persona> {
@@ -38,12 +44,12 @@ export class PersonaService {
     params.set('dni', persona.dni.toString());
     params.set('apellido', persona.apellido.toString());
     params.set('nombre', persona.nombre.toString());
-    return this.http.put<Persona>(`${this.personasUrl}/${persona.id}`, params.toString(), options);
+    return this.http.put<Persona>(`${this.personasResource}/${persona.id}`, params.toString(), options);
   }
 
   deletePersona(persona: Persona): Observable<Persona> {
     this.messageService.add('PersonaService: Persona eliminada');
-    return this.http.delete<Persona>(`${this.personasUrl}/${persona.id}`);
+    return this.http.delete<Persona>(`${this.personasResource}/${persona.id}`);
   }
 
 }
