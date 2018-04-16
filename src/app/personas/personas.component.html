@@ -1,10 +1,23 @@
-<h2>Listado de Personas</h2>
+<h4>Listado de Personas</h4>
 
-<ul class="personas">
-  <li *ngFor="let persona of personas" (click)="onSelect(persona)" [class.selected]="persona === selectedPersona">
-    <!-- each persona goes here -->
-    <span class="badge">{{persona.id}}</span> {{persona.apellido}} {{persona.nombre}}<span class="badge"><button (click)="eliminar(persona)">Eliminar</button></span>
-  </li>
-</ul>
-
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Apellido</th>
+        <th>Nombre</th>
+        <th>&nbsp;</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let persona of personas" (click)="onSelect(persona)" [class.selected]="persona === selectedPersona">
+          <td>{{persona.id}}</td>
+          <td>{{persona.apellido}}</td>
+          <td>{{persona.nombre}}</td>        
+          <td><button (click)="eliminar(persona)">Eliminar</button></td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 <app-persona-detalle [persona]="selectedPersona"></app-persona-detalle>
