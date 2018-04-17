@@ -19,7 +19,7 @@ export class PersonaService extends Api{
 
   getPersonas(): Observable<Persona[]> {
     // Todo: send the message _after_ fetching the heroes
-    this.messageService.add('PersonaService: listado de personas');
+    this.messageService.add('PersonaService: Listado de personas');
     return this.http.get<Persona[]>(this.personasResource);
   }
 
