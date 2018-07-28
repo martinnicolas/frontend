@@ -19,12 +19,12 @@ export class PersonaService extends Api{
 
   getPersonas(): Observable<Persona[]> {
     // Todo: send the message _after_ fetching the heroes
-    this.messageService.add('PersonaService: Listado de personas');
+    //this.messageService.add('Listado de personas');
     return this.http.get<Persona[]>(this.personasResource);
   }
 
   createPersona(persona: Persona): Observable<Persona> {
-    this.messageService.add('PersonaService: Persona creada');
+    this.messageService.add('Persona creada con exito');
     let options = {
       headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
     };
@@ -36,7 +36,7 @@ export class PersonaService extends Api{
   }
 
   updatePersona(persona: Persona): Observable<Persona> {
-    this.messageService.add('PersonaService: Persona actualizada');
+    this.messageService.add('Persona actualizada con exito');
     let options = {
       headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
     };
@@ -48,7 +48,7 @@ export class PersonaService extends Api{
   }
 
   deletePersona(persona: Persona): Observable<Persona> {
-    this.messageService.add('PersonaService: Persona eliminada');
+    this.messageService.add('Persona eliminada con exito');
     return this.http.delete<Persona>(`${this.personasResource}/${persona.id}`);
   }
 

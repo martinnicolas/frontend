@@ -7,7 +7,7 @@
         <th>Id</th>
         <th>Apellido</th>
         <th>Nombre</th>
-        <th>&nbsp;</th>
+        <th>Acciones</th>
       </tr>
     </thead>
     <tbody>
@@ -15,7 +15,7 @@
           <td>{{persona.id}}</td>
           <td>{{persona.apellido}}</td>
           <td>{{persona.nombre}}</td>        
-          <td><button (click)="eliminar(persona)">Eliminar</button></td>
+          <td><button class="btn btn-danger" (click)="eliminar(persona)">Eliminar</button></td>
         </tr>
     </tbody>
   </table>
