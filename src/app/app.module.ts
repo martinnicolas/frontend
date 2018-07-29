@@ -11,6 +11,7 @@ import { MessageService } from './message.service';
 import { MessagesComponent } from './messages/messages.component';
 
 import { HttpClientModule } from '@angular/common/http';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
     MessagesComponent
   ],
   imports: [
+    AngularFontAwesomeModule,
     BrowserModule,
     FormsModule, /* Agrego el modulo a la app */
     HttpClientModule

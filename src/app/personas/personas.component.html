@@ -11,7 +11,7 @@
             <th>Id</th>
             <th>Apellido</th>
             <th>Nombre</th>
-            <th class="text-center col-md-4">Acciones</th>
+            <th class="text-center col-md-2">Acciones</th>
           </tr>
         </thead>
         <tbody>
@@ -19,10 +19,10 @@
               <td>{{persona.id}}</td>
               <td>{{persona.apellido}}</td>
               <td>{{persona.nombre}}</td>
-              <td>
-                <button class="btn btn-default" (click)="onSelect(persona)">Ver</button>
-                <button class="btn btn-primary" (click)="onSelect(persona)">Editar</button>
-                <button class="btn btn-danger" (click)="eliminar(persona)">Eliminar</button>
+              <td class="text-center">
+                <button class="btn btn-sm btn-default" (click)="onSelect(persona)"><fa name="info-circle"></fa></button>
+                <button class="btn btn-sm btn-primary" (click)="onSelect(persona)"><fa name="edit"></fa></button>
+                <button class="btn btn-sm btn-danger" (click)="eliminar(persona)"><fa name="trash"></fa></button>
               </td>
             </tr>
         </tbody>

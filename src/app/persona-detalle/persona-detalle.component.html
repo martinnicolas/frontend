@@ -1,5 +1,5 @@
 <div class="page-header" *ngIf="persona">
-  <h4>Detalles: {{ persona.apellido+', '+persona.nombre | uppercase }}</h4>
+  <h4>{{ persona.apellido+', '+persona.nombre | uppercase }}</h4>
 </div>
 <form class="form-horizontal" *ngIf="persona">
   <div class="form-group">
@@ -28,7 +28,7 @@
   </div> 
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
-      <button class="btn btn-primary" (click)="guardar()">Guardar</button>  
+      <button class="btn btn-md btn-primary" (click)="guardar()"><fa name="save"></fa>Guardar</button>  
     </div>
   </div> 
 </form>
