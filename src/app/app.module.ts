@@ -12,19 +12,22 @@ import { MessagesComponent } from './messages/messages.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { AppRoutingModule } from './/app-routing.module';
+import { InicioComponent } from './inicio/inicio.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PersonaDetalleComponent,
     PersonasComponent,
-    MessagesComponent
+    MessagesComponent,
+    InicioComponent
   ],
   imports: [
     AngularFontAwesomeModule,
     BrowserModule,
     FormsModule, /* Agrego el modulo a la app */
-    HttpClientModule
+    HttpClientModule, AppRoutingModule
   ],
   providers: [ PersonaService, MessageService],
   bootstrap: [AppComponent]
