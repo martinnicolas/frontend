@@ -1,38 +1,33 @@
 
 <div class="row">
-  <div class="col col-sm-8">
-    <div class="page-header">
-      <a class="btn btn-md btn-primary"><fa name="plus"></fa>Registrar nuevo</a>
-      <h4>Gestión de personas</h4>
-    </div>
-    <div class="table-responsive">
-      <table class="table table-striped table-bordered table-hover">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>DNI</th>
-            <th>Apellido</th>
-            <th>Nombre</th>
-            <th class="text-center col-md-2">Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let persona of personas" [class.selected]="persona === selectedPersona">
-              <td>{{persona.id}}</td>
-              <td>{{persona.dni}}</td>
-              <td>{{persona.apellido}}</td>
-              <td>{{persona.nombre}}</td>
-              <td class="text-center">
-                <button class="btn btn-sm btn-default" (click)="onSelect(persona)"><fa name="info-circle"></fa></button>
-                <button class="btn btn-sm btn-primary" (click)="onSelect(persona)"><fa name="edit"></fa></button>
-                <button class="btn btn-sm btn-danger" (click)="eliminar(persona)"><fa name="trash"></fa></button>
-              </td>
-            </tr>
-        </tbody>
-      </table>
-    </div>
+  <div class="page-header">
+    <a class="btn btn-md btn-primary"><fa name="plus"></fa>Registrar nuevo</a>
+    <h4>Gestión de personas</h4>
   </div>
-  <div class="col col-sm-4">
-    <app-persona-detalle [persona]="selectedPersona"></app-persona-detalle>
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered table-hover">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>DNI</th>
+          <th>Apellido</th>
+          <th>Nombre</th>
+          <th class="text-center col-md-2">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let persona of personas">
+          <td>{{persona.id}}</td>
+          <td>{{persona.dni}}</td>
+          <td>{{persona.apellido}}</td>
+          <td>{{persona.nombre}}</td>
+          <td class="text-center">
+            <a class="btn btn-sm btn-default" routerLink="/personas/edit/{{persona.id}}"><fa name="info-circle"></fa></a>
+            <a class="btn btn-sm btn-primary" routerLink="/personas/edit/{{persona.id}}"><fa name="edit"></fa></a>
+            <a class="btn btn-sm btn-danger" (click)="eliminar(persona)"><fa name="trash"></fa></a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>

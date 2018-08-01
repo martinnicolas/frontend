@@ -52,4 +52,10 @@ export class PersonaService extends Api{
     return this.http.delete<Persona>(`${this.personasResource}/${persona.id}`);
   }
 
+  getPersona(id: number): Observable<Persona> {
+    // TODO: send the message _after_ fetching the hero
+    //this.messageService.add(`Se encontro la persona id=${id}`);
+    return this.http.get<Persona>(`${this.personasResource}/${id}`);
+  }
+
 }

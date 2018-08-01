@@ -9,7 +9,6 @@ import { PersonaService } from '../persona.service';
 })
 export class PersonasComponent implements OnInit {
 
-  selectedPersona: Persona; 
   personas: Persona[];
   persona: Persona;
 
@@ -17,10 +16,6 @@ export class PersonasComponent implements OnInit {
    
   ngOnInit() {
     this.getPersonas();
-  }
-
-  onSelect(persona: Persona): void {
-    this.selectedPersona = persona;
   }
 
   getPersonas(): void {
