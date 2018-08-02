@@ -24,8 +24,12 @@ export class PersonasComponent implements OnInit {
   }
 
   eliminar(persona: Persona): void {
-    this.personaService.deletePersona(persona)
-    .subscribe(persona => this.persona = persona);;
+    this.personaService.deletePersona(persona).subscribe(persona => this.persona = persona);
+    this.actualizarPersonas();
+  }
+
+  actualizarPersonas() {
+    this.getPersonas();
   }
 
 }

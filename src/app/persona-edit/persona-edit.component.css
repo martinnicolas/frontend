@@ -1,0 +1,5 @@
+/* botones en titulos ubicados sobre la derecha */
+
+.page-header a.btn {
+    float: right;
+}  

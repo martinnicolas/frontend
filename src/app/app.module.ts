@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { AppRoutingModule } from './/app-routing.module';
 import { InicioComponent } from './inicio/inicio.component';
+import { PersonaEditComponent } from './persona-edit/persona-edit.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { InicioComponent } from './inicio/inicio.component';
     PersonaDetalleComponent,
     PersonasComponent,
     MessagesComponent,
-    InicioComponent
+    InicioComponent,
+    PersonaEditComponent
   ],
   imports: [
     AngularFontAwesomeModule,

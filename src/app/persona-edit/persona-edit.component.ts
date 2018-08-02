@@ -5,15 +5,16 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
 @Component({
-  selector: 'app-persona-detalle',
-  templateUrl: './persona-detalle.component.html',
-  styleUrls: ['./persona-detalle.component.css']
+  selector: 'app-persona-edit',
+  templateUrl: './persona-edit.component.html',
+  styleUrls: ['./persona-edit.component.css']
 })
-export class PersonaDetalleComponent implements OnInit {
-  @Input() persona: Persona;  
+export class PersonaEditComponent implements OnInit {
+  @Input() persona: Persona;
   constructor(
     private route: ActivatedRoute,
-    private personaService: PersonaService
+    private personaService: PersonaService,
+    private location: Location
   ) { }
 
   ngOnInit() {
@@ -24,6 +25,15 @@ export class PersonaDetalleComponent implements OnInit {
     const id = +this.route.snapshot.paramMap.get('id');
     this.personaService.getPersona(id)
       .subscribe(persona => this.persona = persona);
+  }
+
+  guardar(): void {
+    this.personaService.updatePersona(this.persona)
+      .subscribe(persona => this.persona = persona);      
+  }
+
+  volver(): void {
+    this.location.back();
   }
 
 }
