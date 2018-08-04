@@ -1,11 +1,14 @@
-<div class="page-header">
+<div *ngIf="persona" class="page-header">
     <a class="btn btn-default" routerLink="/personas"><fa name="arrow-left"></fa> Volver</a>
     <a class="btn btn-primary" routerLink="/personas/edit/{{persona.id}}"><fa name="edit"></fa> Editar</a>
     <h4>Detalle Persona</h4>
 </div>
   
-<dl class="dl-horizontal">
+<dl *ngIf="persona" class="dl-horizontal">
   
+    <dt>ID:</dt>
+    <dd>{{ persona.id }}</dd>
+
     <dt>DNI:</dt>
     <dd>{{ persona.dni }}</dd>
   

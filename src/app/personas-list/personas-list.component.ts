@@ -4,8 +4,8 @@ import { PersonaService } from '../persona.service';
 
 @Component({
   selector: 'app-personas',
-  templateUrl: './personas.component.html',
-  styleUrls: ['./personas.component.css']
+  templateUrl: './personas-list.component.html',
+  styleUrls: ['./personas-list.component.css']
 })
 export class PersonasComponent implements OnInit {
 

@@ -4,7 +4,7 @@ import { FormsModule }   from '@angular/forms'; /*Para formulario*/
 
 import { AppComponent } from './app.component';
 import { PersonaDetalleComponent } from './persona-detalle/persona-detalle.component';
-import { PersonasComponent } from './personas/personas.component';
+import { PersonasComponent } from './personas-list/personas-list.component';
 
 import { PersonaService } from './persona.service';
 import { MessageService } from './message.service';
@@ -12,9 +12,10 @@ import { MessagesComponent } from './messages/messages.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
-import { AppRoutingModule } from './/app-routing.module';
+import { AppRoutingModule } from './app-routing.module';
 import { InicioComponent } from './inicio/inicio.component';
 import { PersonaEditComponent } from './persona-edit/persona-edit.component';
+import { PersonaCreateComponent } from './persona-create/persona-create.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { PersonaEditComponent } from './persona-edit/persona-edit.component';
     PersonasComponent,
     MessagesComponent,
     InicioComponent,
-    PersonaEditComponent
+    PersonaEditComponent,
+    PersonaCreateComponent
   ],
   imports: [
     AngularFontAwesomeModule,

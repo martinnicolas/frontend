@@ -32,7 +32,7 @@ export class PersonaService extends Api{
     params.set('dni', persona.dni.toString());
     params.set('apellido', persona.apellido.toString());
     params.set('nombre', persona.nombre.toString());
-    return this.http.post<Persona>(this.personasResource, params, options);
+    return this.http.post<Persona>(this.personasResource, params.toString(), options);
   }
 
   updatePersona(persona: Persona): Observable<Persona> {
