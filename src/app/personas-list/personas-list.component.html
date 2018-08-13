@@ -9,23 +9,44 @@
       <thead>
         <tr>
           <th>ID</th>
-          <th>DNI</th>
+          <th>Tipo de documento</th>
+          <th>Número de documento</th>
           <th>Apellido</th>
           <th>Nombre</th>
+          <th>Provincia</th>
+          <th>Localidad</th>
           <th class="text-center col-md-2">Acciones</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let persona of personas">
           <td>{{persona.id}}</td>
-          <td>{{persona.dni}}</td>
+          <td>{{persona.tipo_documento.descripcion}}</td>
+          <td>{{persona.numero_documento}}</td>
           <td>{{persona.apellido}}</td>
           <td>{{persona.nombre}}</td>
+          <td>{{persona.localidad.provincia.nombre}}</td>
+          <td>{{persona.localidad.nombre}}</td>
           <td class="text-center">
             <a class="btn btn-sm btn-default" routerLink="/personas/show/{{persona.id}}"><fa name="info-circle"></fa></a>
             <a class="btn btn-sm btn-primary" routerLink="/personas/edit/{{persona.id}}"><fa name="edit"></fa></a>
-            <a class="btn btn-sm btn-danger" (click)="eliminar(persona)"><fa name="trash"></fa></a>
+            <a class="btn btn-sm btn-danger" (click)="modalEliminar(template)"><fa name="trash"></fa></a>
           </td>
+          <ng-template #template>
+              <div class="modal-header">
+                <h4 class="modal-title pull-left">Atención!</h4>
+                <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                Está seguro de querer elminar esta persona?.
+              </div>
+              <div class="modal-footer">
+                <a class="btn btn-sm btn-danger" (click)="eliminar(persona)"><fa name="check"></fa>Si, eliminarla</a>
+                <a class="btn btn-sm btn-default" (click)="modalRef.hide()"><fa name="close"></fa>No, conservarla</a>
+              </div>
+            </ng-template>
         </tr>
       </tbody>
     </table>

@@ -9,13 +9,22 @@
     <dt>ID:</dt>
     <dd>{{ persona.id }}</dd>
 
-    <dt>DNI:</dt>
-    <dd>{{ persona.dni }}</dd>
+    <dt>Tipo de documento:</dt>
+    <dd>{{ persona.tipo_documento.descripcion }}</dd>
+
+    <dt>Número de documento:</dt>
+    <dd>{{ persona.numero_documento }}</dd>
   
     <dt>Apellido:</dt>
     <dd>{{ persona.apellido }}</dd>
   
     <dt>Nombre:</dt>
     <dd>{{ persona.nombre }}</dd>
+
+    <dt>Provincia:</dt>
+    <dd>{{ persona.localidad.provincia.nombre }}</dd>
+
+    <dt>Localidad:</dt>
+    <dd>{{ persona.localidad.nombre }}</dd>
   
 </dl>

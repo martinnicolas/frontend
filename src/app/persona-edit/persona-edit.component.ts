@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Persona } from '../persona';
+import { Persona } from '../Persona';
 import { PersonaService } from '../persona.service';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
@@ -10,7 +10,7 @@ import { Location } from '@angular/common';
   styleUrls: ['./persona-edit.component.css']
 })
 export class PersonaEditComponent implements OnInit {
-  @Input() persona: Persona;
+  persona: Persona;
   constructor(
     private route: ActivatedRoute,
     private personaService: PersonaService,
@@ -24,12 +24,16 @@ export class PersonaEditComponent implements OnInit {
   getPersona(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.personaService.getPersona(id)
-      .subscribe(persona => this.persona = persona);
+      .subscribe(
+        persona => this.persona = persona
+      );
   }
 
   guardar(): void {
     this.personaService.updatePersona(this.persona)
-      .subscribe(persona => this.persona = persona);      
+      .subscribe(
+        persona => this.persona = persona
+      );      
   }
 
   volver(): void {

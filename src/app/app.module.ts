@@ -4,7 +4,7 @@ import { FormsModule }   from '@angular/forms'; /*Para formulario*/
 
 import { AppComponent } from './app.component';
 import { PersonaDetalleComponent } from './persona-detalle/persona-detalle.component';
-import { PersonasComponent } from './personas-list/personas-list.component';
+import { PersonasListComponent } from './personas-list/personas-list.component';
 
 import { PersonaService } from './persona.service';
 import { MessageService } from './message.service';
@@ -16,18 +16,22 @@ import { AppRoutingModule } from './app-routing.module';
 import { InicioComponent } from './inicio/inicio.component';
 import { PersonaEditComponent } from './persona-edit/persona-edit.component';
 import { PersonaCreateComponent } from './persona-create/persona-create.component';
+import { PersonaFormComponent } from './persona-form/persona-form.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 @NgModule({
   declarations: [
     AppComponent,
     PersonaDetalleComponent,
-    PersonasComponent,
+    PersonasListComponent,
     MessagesComponent,
     InicioComponent,
     PersonaEditComponent,
-    PersonaCreateComponent
+    PersonaCreateComponent,
+    PersonaFormComponent
   ],
   imports: [
+    ModalModule.forRoot(),
     AngularFontAwesomeModule,
     BrowserModule,
     FormsModule, /* Agrego el modulo a la app */

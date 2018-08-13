@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Persona } from '../persona';
+import { Persona } from '../Persona';
 import { PersonaService } from '../persona.service';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
@@ -23,7 +23,9 @@ export class PersonaDetalleComponent implements OnInit {
   getPersona(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.personaService.getPersona(id)
-      .subscribe(persona => this.persona = persona);
+      .subscribe(
+        persona => this.persona = persona
+      );
   }
 
 }
