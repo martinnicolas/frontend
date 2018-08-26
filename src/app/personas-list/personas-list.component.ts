@@ -13,6 +13,7 @@ export class PersonasListComponent implements OnInit {
   personas: Persona[];
   persona: Persona;
   modalRef: BsModalRef;
+  cargando_personas: boolean;
 
   constructor(
     private personaService: PersonaService,
@@ -23,8 +24,11 @@ export class PersonasListComponent implements OnInit {
   }
 
   getPersonas(): void {
-    this.personaService.getPersonas()
-        .subscribe(personas => this.personas = personas);
+    this.cargando_personas = true;
+    this.personaService.getPersonas().subscribe(data => {
+      this.personas = data;
+      this.cargando_personas = false;
+    });
   }
 
   modalEliminar(template: TemplateRef<any>):void {
@@ -33,14 +37,10 @@ export class PersonasListComponent implements OnInit {
 
   eliminar(persona: Persona): void {
     this.personaService.deletePersona(persona).
-      subscribe(
-        persona => this.persona = persona
-      );
-    this.actualizarPersonas();
-  }
-
-  actualizarPersonas() {
-    this.getPersonas();
+      subscribe(data => {
+        this.modalRef.hide();
+        this.getPersonas();
+      });    
   }
 
 }

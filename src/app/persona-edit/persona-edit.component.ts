@@ -29,13 +29,6 @@ export class PersonaEditComponent implements OnInit {
       );
   }
 
-  guardar(): void {
-    this.personaService.updatePersona(this.persona)
-      .subscribe(
-        persona => this.persona = persona
-      );      
-  }
-
   volver(): void {
     this.location.back();
   }

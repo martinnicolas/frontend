@@ -4,6 +4,7 @@ import { PersonaService } from '../persona.service';
 import { Provincia } from '../Provincia';
 import { Localidad } from '../Localidad';
 import { TipoDocumento } from '../TipoDocumento';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-persona-form',
@@ -15,8 +16,11 @@ export class PersonaFormComponent implements OnInit {
   tipos_documento: TipoDocumento[];
   provincias: Provincia[];
   localidades: Localidad[];
+  guardando: boolean;
+
   constructor(
-    private personaService: PersonaService
+    private personaService: PersonaService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -31,24 +35,30 @@ export class PersonaFormComponent implements OnInit {
 
   guardar(): void {
     if (!this.persona.id) {
-      this.nuevaPersona();
+      this.crearPersona();
     }else {
       this.modificarPersona();
     }    
   }
 
-  nuevaPersona() {
+  crearPersona() {
+    this.guardando = true;
     this.personaService.createPersona(this.persona)
-    .subscribe(
-      persona => this.persona = persona
-    );      
+    .subscribe(data => {
+      this.persona = data;
+      this.guardando = false;
+      this.router.navigate([`/personas/show/${this.persona.id}`]);
+    });      
   }
 
   modificarPersona() {
+    this.guardando = true;
     this.personaService.updatePersona(this.persona)
-    .subscribe(
-      persona => this.persona = persona
-    );      
+    .subscribe(data => {
+      this.persona = data;
+      this.guardando = false;
+      this.router.navigate([`/personas/show/${this.persona.id}`]);
+    });      
   }
 
   changeProvincia(provincia_id: number) {
